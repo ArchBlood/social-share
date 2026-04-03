@@ -55,7 +55,7 @@ class MastodonDriver extends BaseDriver
     {
         // Allow the admin to override by storing the instance in custom_settings JSON
         $settings = $this->provider->custom_settings
-            ? json_decode($this->provider->custom_settings, true)
+            ? json_decode((string) $this->provider->custom_settings, true)
             : [];
 
         return $settings['instance'] ?? static::DEFAULT_INSTANCE;
